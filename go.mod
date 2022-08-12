@@ -1,4 +1,4 @@
-module wxcloudrun-golang
+module wxcloudrun-golang-demo
 
 go 1.16
 
