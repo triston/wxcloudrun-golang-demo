@@ -17,6 +17,13 @@ type VersionResult struct {
 func VersionHandler(w http.ResponseWriter, r *http.Request) {
 	res := &VersionResult{}
 
+	//  打印请求头
+	for k, v := range r.Header {
+		for _, vv := range v {
+			fmt.Println("Header Key: " + k + " value: " + vv)
+		}
+	}
+
 	if r.Method == http.MethodGet {
 		res.Version = "20220813.01"
 	} else {
