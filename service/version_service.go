@@ -24,6 +24,8 @@ func VersionHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+	getUserPhone()
+
 	if r.Method == http.MethodGet {
 		res.Version = "20220813.01"
 	} else {
@@ -37,4 +39,9 @@ func VersionHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("content-type", "application/json")
 	w.Write(msg)
+}
+
+func getUserPhone() {
+	resp, err := http.Post("https://api.weixin.qq.com/wxa/business/getuserphonenumber")
+	fmt.Println("resp", resp)
 }
